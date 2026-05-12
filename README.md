@@ -56,13 +56,20 @@ Tailwind v4 with a tiny theme defined in [app/globals.css](app/globals.css):
 
 Geist Sans + Geist Mono via `next/font/google`.
 
-## Deploying to Vercel
+## Deploying to Cloudflare Pages
 
-```bash
-# from this directory
-npx vercel
-# or push to GitHub and import the repo at https://vercel.com/new
-```
+This site is configured for **static export** (`output: "export"` in [next.config.ts](next.config.ts)), so Cloudflare Pages serves it as plain HTML/CSS/JS — no Workers runtime needed.
+
+1. Push the repo to GitHub.
+2. <https://dash.cloudflare.com> → **Workers & Pages → Create → Pages → Connect to Git**.
+3. Pick the repo. Build settings:
+   - **Framework preset:** Next.js (Static HTML Export)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+   - **Node version:** 20 (set via env var `NODE_VERSION=20`, or rely on `.nvmrc`)
+4. Save and deploy. Live at `<project>.pages.dev` in ~90s.
+
+Every push to `main` → production deploy. Every PR / branch → preview URL.
 
 No env vars required.
 
