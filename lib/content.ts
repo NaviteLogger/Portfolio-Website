@@ -56,9 +56,9 @@ export const profile = {
 };
 
 export const about = [
-  "Backend-leaning engineer with production experience across Node.js, TypeScript, Go, and Python — comfortable owning the full cycle from architecture and code through the test pyramid to Kubernetes deployment and on-call.",
-  "Currently Head of Software Development and Security for a confidential automation platform and Brand Technical Specialist at IBM. A cybersecurity specialisation at Warsaw University of Life Sciences keeps security as the lens I review my own code through.",
-  "Alongside the engineering, I've led delivery for cross-functional teams shipping across fintech, SaaS, e-commerce, and academic research — the PM lens sharpens how I scope a roadmap and talk to stakeholders, not just how I write code.",
+  "As Brand Technical Specialist at IBM, I contribute to technical sales through tailored consultations, solution prototypes, and product demonstrations — aligning customer needs with enterprise software solutions to provide effective technical sales support. In parallel, I lead engineering and security for a confidential automation platform as Head of Software Development and Security, owning architecture, infrastructure, and on-call across the stack.",
+  "Currently pursuing an Engineer's degree in Computer Science at SGGW (Warsaw University of Life Sciences) with a specialisation in Cybersecurity, I bring a strong technical foundation to both roles. My multilingual abilities in Polish, English, and Spanish complement my experience in software development and enterprise solutions, enabling effective collaboration with diverse teams and global clients.",
+  "Previously, I engineered software end-to-end as a Full Stack Web Developer — from database design through API deployment to UI polish. I'm comfortable across databases, APIs, UX/UI, and CI/CD pipelines, and I deploy projects using virtualisation and container technologies. Alongside the engineering, I'm actively deepening my cybersecurity practice — currently through hands-on work on AI-driven code analysis pipelines and smart-contract security research.",
 ];
 
 export const projects: Project[] = [
