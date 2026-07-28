@@ -3,7 +3,7 @@ import { Section } from "./Section";
 
 export function Skills() {
   return (
-    <Section id="skills" eyebrow="Stack" title="Tools I reach for.">
+    <Section id="skills" eyebrow="Capabilities" title="How I lead and build.">
       <dl className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
         {skillGroups.map((group) => (
           <div key={group.label}>

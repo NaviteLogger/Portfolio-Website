@@ -44,10 +44,16 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type LeadershipHighlight = {
+  value: string;
+  label: string;
+  detail: string;
+};
+
 export const profile = {
   name: "Marek Kacprzak",
   tagline:
-    "Backend-leaning full-stack engineer building secure, observable systems.",
+    "Engineering leader turning ambiguous problems into secure, scalable products — and helping teams ship them.",
   location: "Warsaw, Poland",
   email: "kacprzakmarek92@gmail.com",
   github: "https://github.com/navitelogger",
@@ -56,12 +62,94 @@ export const profile = {
 };
 
 export const about = [
-  "As Brand Technical Specialist at IBM, I contribute to technical sales through tailored consultations, solution prototypes, and product demonstrations — aligning customer needs with enterprise software solutions to provide effective technical sales support. In parallel, I lead engineering and security for a confidential automation platform as Head of Software Development and Security, owning architecture, infrastructure, and on-call across the stack.",
-  "Currently pursuing an Engineer's degree in Computer Science at SGGW (Warsaw University of Life Sciences) with a specialisation in Cybersecurity, I bring a strong technical foundation to both roles. My multilingual abilities in Polish, English, and Spanish complement my experience in software development and enterprise solutions, enabling effective collaboration with diverse teams and global clients.",
-  "Previously, I engineered software end-to-end as a Full Stack Web Developer — from database design through API deployment to UI polish. I'm comfortable across databases, APIs, UX/UI, and CI/CD pipelines, and I deploy projects using virtualisation and container technologies. Alongside the engineering, I'm actively deepening my cybersecurity practice — currently through hands-on work on AI-driven code analysis pipelines and smart-contract security research.",
+  "I lead engineering and security for a confidential automation platform, owning the path from an incomplete brief to a reliable production system. That means setting direction, shaping scope, allocating work, reviewing technical decisions, removing blockers, and staying hands-on across APIs, data, cloud infrastructure, security, and operations.",
+  "At IBM, I work directly with enterprise customers to uncover the real problem behind a request, turn it into a viable architecture, and prove it through workshops, demos, PoCs, and MVP plans. Earlier delivery and project-management roles taught me to connect roadmap, budget, risk, quality, and stakeholder communication without losing sight of the engineers doing the work.",
+  "I am studying Computer Science with a Cybersecurity specialisation at SGGW. I care about teams that ask good questions, make evidence-based trade-offs, document decisions, and improve continuously. My technical range — Python, TypeScript, Go, distributed systems, AI workflows, cloud, and secure delivery — helps me lead with context rather than process for its own sake.",
+];
+
+export const leadershipHighlights: LeadershipHighlight[] = [
+  {
+    value: "End to end",
+    label: "Product ownership",
+    detail: "Roadmap, architecture, delivery, security, releases, and production operations.",
+  },
+  {
+    value: "100 events/s",
+    label: "Proven resilience",
+    detail: "6,000-event Kafka verification run completed without failed writes.",
+  },
+  {
+    value: "Cross-functional",
+    label: "Team leadership",
+    detail: "Backend, frontend, platform, security, operations, product, and customer stakeholders.",
+  },
+  {
+    value: "PoC to MVP",
+    label: "Customer translation",
+    detail: "Enterprise discovery turned into working proof points and implementation plans.",
+  },
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "infrastructure-automation-platform",
+    title: "Infrastructure Automation Platform",
+    tagline: "Production platform spanning secure builds, artifacts, AI analysis, and resilient delivery.",
+    description:
+      "I lead the roadmap, architecture, delivery standards, security posture, and operational resilience while remaining hands-on across Python/FastAPI services, PostgreSQL workflow state, Kafka distribution, object storage, Kubernetes, GitOps, and private cloud. The platform turns immutable source snapshots into verified artifacts through isolated, observable workflows.",
+    tech: [
+      "Python / FastAPI",
+      "PostgreSQL",
+      "Kafka",
+      "Kubernetes / k3s",
+      "OpenTofu",
+      "Ansible",
+      "Argo CD",
+      "Prometheus",
+    ],
+    year: "May 2026 — Current",
+    category: "featured",
+    details: {
+      overview:
+        "A production build, artifact, and infrastructure automation platform. I own the product and engineering lifecycle, coordinating platform, backend, security, and operations while setting the quality bar for releases and reliability.",
+      sections: [
+        {
+          heading: "Leadership & Architecture",
+          bullets: [
+            {
+              label: "End-to-End Ownership",
+              text: "Set roadmap, architecture, delivery standards, security priorities, and operational practices; translate stakeholder needs into scoped work across engineering disciplines.",
+            },
+            {
+              label: "Platform Design",
+              text: "Reproducible private cloud using Proxmox, OpenTofu, Ansible, Kubernetes/k3s, and Argo CD, with Python/FastAPI services for ingestion, builds, artifacts, reporting, notifications, retention, and distribution.",
+            },
+            {
+              label: "AI Workflows",
+              text: "AI-driven code and infrastructure analysis with structured outputs, validation, traces, evaluation checks, and human correction paths.",
+            },
+          ],
+        },
+        {
+          heading: "Reliability & Secure Delivery",
+          bullets: [
+            {
+              label: "Event-Driven Distribution",
+              text: "Kafka with transactional outbox, independent consumers, retries, dead letters, deduplication, and backpressure; verified 6,000 events at 100 events per second without failed writes.",
+            },
+            {
+              label: "Release Governance",
+              text: "Workload identity, private PKI, short-lived secrets, SBOMs, provenance, vulnerability scanning, signing, approval gates, verification, rollback, and adversarial testing.",
+            },
+            {
+              label: "Operations",
+              text: "Automated CI/CD and GitOps with monitoring, backup, disaster recovery, failure diagnosis, and controlled recovery.",
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     slug: "connexio-pl",
     title: "Connexio.pl",
@@ -145,7 +233,7 @@ export const projects: Project[] = [
       "Oracle Cloud",
     ],
     year: "Oct 2025 — Nov 2025",
-    category: "featured",
+    category: "engineering",
     details: {
       overview:
         "Real-time social networking platform built for dormitory ecosystems. I focused on a scalable architecture balancing high-performance backend logic with a modern responsive UX, while maintaining a robust and automated infrastructure.",
@@ -280,7 +368,7 @@ export const projects: Project[] = [
       "OpenAPI",
     ],
     year: "May 2025 — Dec 2025",
-    category: "featured",
+    category: "engineering",
     details: {
       overview:
         "Self-directed Nest.js + TypeScript backend exposing typed, cost-aware analytics endpoints over a warehouse-scale BigQuery dataset. I owned the full lifecycle from schema and API design through testing and deployment, prioritising strict typing, query economics, and a defensible test pyramid over feature velocity.",
@@ -351,7 +439,7 @@ export const projects: Project[] = [
       "Linux",
     ],
     year: "2026 — Current",
-    category: "engineering",
+    category: "featured",
     details: {
       overview:
         "Centralised Build Management System and Dashboard orchestrating complex compilation workflows — bridging high-level administrative control with low-level server security to keep a stable environment for automated game builds and real-time infrastructure monitoring.",
@@ -419,7 +507,7 @@ export const projects: Project[] = [
       "Playwright",
     ],
     year: "Aug 2025 — Feb 2026",
-    category: "featured",
+    category: "engineering",
     details: {
       overview:
         "ERC-4337 v0.7 Passkey Wallet — a smart wallet that accepts an EOA owner (secp256k1) or a WebAuthn passkey (secp256r1), with gas paid by an off-chain-signed sponsor paymaster. The Coinbase Smart Wallet pattern, built end-to-end.",
@@ -841,6 +929,24 @@ export const projects: Project[] = [
 
 export const experience: WorkExperience[] = [
   {
+    org: "Confidential Client",
+    meta: "Remote · Warsaw",
+    roles: [
+      {
+        title: "Head of Software Engineering",
+        period: "Jan 2026 — Current",
+        summary:
+          "Own the product and engineering lifecycle for an AI-enabled automation platform. Set roadmap and technical direction, allocate work across backend, frontend, platform, security, and operations, review architecture and delivery quality, remove blockers, and remain hands-on in Python/FastAPI, event-driven workflows, cloud infrastructure, observability, and secure releases.",
+      },
+      {
+        title: "Head of Software Development and Security",
+        period: "Jan 2026 — Jun 2026",
+        summary:
+          "Established the platform architecture and security strategy across multi-cloud infrastructure, CI/CD, access control, monitoring, and AI-driven analysis. Built the engineering foundations for reproducible delivery, operational resilience, and protection of source code and proprietary systems.",
+      },
+    ],
+  },
+  {
     org: "IBM",
     meta: "Full-time · Warsaw — Hybrid",
     roles: [
@@ -848,25 +954,13 @@ export const experience: WorkExperience[] = [
         title: "Brand Technical Specialist",
         period: "Jan 2026 — Current",
         summary:
-          "Hands-on technical specialist designing viable client solutions across IBM's automation portfolio. Articulate value proposition and ROI, navigate the competitive landscape, and deliver technical proof points — demos, POTs, POCs, workshops, solution designs, and MVPs — to remove technical inhibitors from enterprise sales cycles.",
+          "Lead technical discovery for enterprise opportunities and turn ambiguous customer needs into viable solution architectures, demos, proofs of technology, PoCs, workshops, proposals, and MVP plans. Coordinate customers, engineering, product, architecture, and sales while communicating constraints, risk, scalability, and business value.",
       },
       {
         title: "Pre-sales Engineer",
         period: "Oct 2025 — Dec 2025",
         summary:
-          "Technical bridge between IBM's product capabilities and enterprise customer requirements. Designed PoCs, led workshops and demos, owned the technical workstream on RFP / RFI responses, and supported the sales cycle from discovery through close.",
-      },
-    ],
-  },
-  {
-    org: "Confidential Client",
-    meta: "Self-employed · Warsaw — Remote",
-    roles: [
-      {
-        title: "Head of Software Development and Security",
-        period: "Jan 2026 — Current",
-        summary:
-          "End-to-end engineering and security ownership for an infrastructure automation platform. Lead architectural governance, ship backend API and integration work, and run multi-cloud deployments (AWS / GCP / Azure) via CI/CD. Spearhead AI-driven code and infrastructure analysis pipelines for proactive vulnerability detection; own the monitoring, logging, and 24/7 observability story.",
+          "Acted as the technical bridge between product capabilities and enterprise requirements, owning solution design, customer workshops, technical proof points, integration guidance, and RFP/RFI workstreams.",
       },
     ],
   },
@@ -878,7 +972,7 @@ export const experience: WorkExperience[] = [
         title: "Junior Delivery Manager",
         period: "Jun 2025 — Sep 2025",
         summary:
-          "Cross-functional delivery and project management for complex web applications across fintech, SaaS, and public sector clients. Owned end-to-end delivery cycles, SLA monitoring, agile sprint planning, and client relationships. Drove internal automation (leave management, wikis, schedules), managed budgets and PMO-ready financial reports, and ran onboarding across Netherlands–Poland teams.",
+          "Managed cross-functional delivery across fintech, SaaS, and public-sector work: requirements, Agile execution, risks, SLAs, quality, testing, deployment support, budgets, and PMO reporting. Coached team members, improved onboarding and feedback loops, and automated internal operational workflows.",
       },
     ],
   },
@@ -890,7 +984,7 @@ export const experience: WorkExperience[] = [
         title: "Project Manager",
         period: "Apr 2025 — Jun 2025",
         summary:
-          "Delivery and project management for WordPress / WooCommerce eCommerce builds. Drove the full lifecycle from scoping through deployment, owned risk planning and design-to-code QA, and served as the primary client contact translating business needs into technical requirements.",
+          "Led e-commerce projects from scoping and requirements through planning, risk management, design-to-code quality assurance, documentation, and deployment. Served as the primary client contact and translated commercial priorities into actionable technical work.",
       },
     ],
   },
@@ -902,13 +996,25 @@ export const experience: WorkExperience[] = [
         title: "IT Project Manager",
         period: "Apr 2024 — Jun 2025",
         summary:
-          "Project management for the Allegro-seller analytics platform. Ran an Agile / Waterfall hybrid, prioritised the backlog, coordinated code reviews and architectural audits, and owned releases across cloud environments — Jira and Azure DevOps for transparent client reporting.",
+          "Led delivery of data-driven products for the Allegro seller ecosystem across roadmap, backlog, sprints, risks, documentation, quality reviews, testing, and cloud releases. Coordinated stakeholders, UX, developers, and testers using Jira and Azure DevOps for transparent project reporting.",
       },
       {
         title: "Full Stack Developer",
-        period: "Mar 2024 — Apr 2025",
+        period: "Jan 2024 — Apr 2025",
         summary:
-          "Full-stack engineering for the Allegro-seller analytics platform — Go APIs (Huma, Gin) over PostgreSQL, an Angular + Tailwind frontend, and a fully-featured browser extension via WXT extending platform functionality directly into seller workflows. Operated Docker / Kubernetes environments with CI/CD for reliable deployment.",
+          "Built production analytics software across Go and Node.js APIs, PostgreSQL, Angular, Tailwind, and a WXT browser extension. Operated Docker and Kubernetes environments, CI/CD, automated tests, monitoring, and production debugging — technical depth that still shapes how I estimate and lead delivery.",
+      },
+    ],
+  },
+  {
+    org: "Concepcion Ideale N2",
+    meta: "Full-time · Warsaw — Remote",
+    roles: [
+      {
+        title: "Full Stack Developer",
+        period: "Jun 2022 — Oct 2023",
+        summary:
+          "Built and deployed a secure document-purchasing and electronic-signature platform using Node.js, Express, MySQL, JavaScript, DigitalOcean, and CI/CD. Owned database design, backend workflows, responsive UI, secure transaction handling, releases, and performance improvements.",
       },
     ],
   },
@@ -916,67 +1022,69 @@ export const experience: WorkExperience[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "Backend & Languages",
+    label: "Leadership & Management",
     items: [
-      "Node.js (Nest.js, Express)",
-      "TypeScript",
-      "Go (Huma, Gin)",
-      "Python (FastAPI)",
-      "Rust",
+      "Technical direction",
+      "Roadmaps & prioritisation",
+      "Work allocation",
+      "Mentoring & feedback",
+      "Risk & budget management",
+      "Quality governance",
     ],
   },
   {
-    label: "Data & Streaming",
+    label: "Product & Stakeholders",
     items: [
-      "PostgreSQL",
-      "MySQL",
+      "Customer discovery",
+      "Problem framing",
+      "PoCs & MVPs",
+      "Cross-functional facilitation",
+      "RFP / RFI",
+      "Executive communication",
+    ],
+  },
+  {
+    label: "Systems & Backend",
+    items: [
+      "Python / FastAPI",
+      "Node.js / TypeScript",
+      "Go",
+      "REST / OpenAPI",
+      "Event-driven architecture",
+      "Distributed systems",
+    ],
+  },
+  {
+    label: "Data & AI",
+    items: [
+      "PostgreSQL / PostGIS",
       "BigQuery",
       "Redis",
       "Kafka",
-      "pgvector",
+      "ETL & ingestion",
+      "LLM & agent workflows",
     ],
   },
   {
-    label: "Cloud & Deployment",
+    label: "Cloud & Reliability",
     items: [
-      "AWS (Lambda, ECS, S3)",
-      "GCP",
-      "Azure",
+      "AWS / GCP / Azure",
       "Kubernetes",
       "Docker",
-      "GitHub Actions",
+      "Terraform / OpenTofu",
+      "Ansible / Argo CD",
+      "Prometheus / Grafana",
     ],
   },
   {
-    label: "Observability & Testing",
+    label: "Delivery & Security",
     items: [
-      "Prometheus",
-      "Grafana",
-      "Sentry",
-      "ELK",
-      "Jest",
-      "supertest",
-      "Playwright",
-    ],
-  },
-  {
-    label: "Security",
-    items: [
+      "Agile / Scrum",
+      "CI/CD & GitOps",
+      "Automated testing",
       "Threat modelling",
-      "Secure API design",
-      "HMAC request signing",
-      "Container hardening",
-      "OWASP",
-    ],
-  },
-  {
-    label: "Frontend",
-    items: [
-      "React",
-      "Next.js",
-      "Angular",
-      "Tailwind CSS",
-      "Browser extensions (WXT)",
+      "Secure SDLC",
+      "Incident recovery",
     ],
   },
 ];

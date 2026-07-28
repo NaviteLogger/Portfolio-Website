@@ -8,13 +8,13 @@ export function Projects() {
   const research = projects.filter((p) => p.category === "research");
 
   return (
-    <Section id="projects" eyebrow="Selected Work" title="Things I've worked on.">
+    <Section id="projects" eyebrow="Selected Work" title="Systems and products I've led.">
       <div className="space-y-16">
-        <SubGroup label="Featured">
+        <SubGroup label="Leadership & impact">
           <FeaturedGrid projects={featured} />
         </SubGroup>
 
-        <SubGroup label="More work">
+        <SubGroup label="Engineering depth">
           <CompactList projects={engineering} />
         </SubGroup>
 

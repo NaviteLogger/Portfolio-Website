@@ -4,7 +4,7 @@ import { Section } from "./Section";
 
 export function Experience() {
   return (
-    <Section id="experience" eyebrow="Experience" title="Where I've worked.">
+    <Section id="experience" eyebrow="Experience" title="A career built across engineering and delivery.">
       <ol className="space-y-14">
         {experience.map((entry) => (
           <OrgEntry key={entry.org} entry={entry} />

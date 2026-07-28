@@ -21,7 +21,7 @@ export function Hero() {
           href={profile.resumeHref}
           className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--color-fg)] px-5 py-2.5 text-[color:var(--color-bg)] transition hover:bg-[color:var(--color-accent)]"
         >
-          Resume
+          Leadership CV
           <span aria-hidden className="transition group-hover:translate-x-0.5">↗</span>
         </a>
         <a

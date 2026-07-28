@@ -32,7 +32,7 @@ lib/
   content.ts       # all profile / project / experience / skills data
 content/projects/  # reserved for MDX project deep-dives if you add /projects/[slug] later
 public/
-  resume.pdf       # drop the latest CV here; Hero links to /resume.pdf
+  resume.pdf       # embedded leadership CV; Hero links to /resume.pdf
 ```
 
 ## Editing content
@@ -75,8 +75,7 @@ No env vars required.
 
 ## TODO before going live
 
-- [ ] Drop the latest `resume.pdf` into `public/`
+- [x] Leadership CV embedded at `public/resume.pdf`
 - [ ] Add repo / demo links to the projects in `lib/content.ts` (`links` field)
-- [ ] Replace `https://marekkacprzak.dev` in [app/layout.tsx](app/layout.tsx) `metadataBase` with the real domain
 - [ ] Consider an OG image at `app/opengraph-image.tsx` (Next.js will pick it up automatically)
 - [ ] Sanity-check accessibility: tab order, focus rings, contrast on the muted text

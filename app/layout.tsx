@@ -13,14 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marek Kacprzak — Backend Engineer",
+  title: "Marek Kacprzak — Engineering Leader",
   description:
-    "Backend-leaning full-stack engineer building secure, observable systems. Node.js, TypeScript, Go, and Python in production — with a security-first instinct.",
-  metadataBase: new URL("https://marekkacprzak.dev"),
+    "Engineering leader building secure, scalable products across AI, data platforms, distributed systems, and cloud infrastructure.",
   openGraph: {
-    title: "Marek Kacprzak — Backend Engineer",
+    title: "Marek Kacprzak — Engineering Leader",
     description:
-      "Backend-leaning full-stack engineer building secure, observable systems.",
+      "Engineering leadership across AI products, data platforms, distributed systems, and secure cloud delivery.",
     type: "website",
   },
 };
