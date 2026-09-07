@@ -92,6 +92,237 @@ export const leadershipHighlights: LeadershipHighlight[] = [
 
 export const projects: Project[] = [
   {
+    "slug": "inside-man",
+    "title": "Inside Man — Kubernetes Observability",
+    "tagline": "Service health, traces, logs and metrics in one Kubernetes installation.",
+    "description": "I created an open-source observability platform that combines a Helm deployment with a Go backend and React interface. It connects service metrics, traces and logs so engineers can investigate failures without assembling the monitoring stack themselves.",
+    "tech": [
+      "Go",
+      "React / TypeScript",
+      "Kubernetes / Helm",
+      "OpenTelemetry",
+      "Prometheus",
+      "Grafana / Loki / Tempo",
+      "GitHub Actions"
+    ],
+    "year": "Aug 2026 — Current",
+    "category": "featured",
+    "details": {
+      "overview": "I created an open-source observability platform that combines a Helm deployment with a Go backend and React interface. It connects service metrics, traces and logs so engineers can investigate failures without assembling the monitoring stack themselves.",
+      "sections": [
+        {
+          "heading": "Architecture & Developer Experience",
+          "bullets": [
+            {
+              "label": "One installation",
+              "text": "Packaged the monitoring stack in an umbrella Helm chart with pinned dependencies and automated checks for dependency drift."
+            },
+            {
+              "label": "Connected diagnostics",
+              "text": "Used a shared service identifier across telemetry and built service lists, detail views, maps and diagnostics around it."
+            },
+            {
+              "label": "API consistency",
+              "text": "Defined an OpenAPI contract that generates frontend types, with CI checks for stale types and mismatched Go responses."
+            }
+          ]
+        },
+        {
+          "heading": "Verification & Operations",
+          "bullets": [
+            {
+              "label": "Real-cluster testing",
+              "text": "Built a 45-assertion suite across two Kubernetes versions, extending verification to upgrade, rollback, data survival and authentication flows."
+            },
+            {
+              "label": "Documented operations",
+              "text": "Published a runbook and resource requirements; the default installation requests 1050m CPU and 2.37 GiB of memory."
+            }
+          ]
+        }
+      ]
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/NaviteLogger/Inside-Man"
+      }
+    ]
+  },
+  {
+    "slug": "smartura-academy",
+    "title": "Smartura Academy",
+    "tagline": "A production learning and tutoring platform, from checkout to lesson delivery.",
+    "description": "As founder, I own the architecture, delivery, security and release operations of a Polish education platform replacing a WordPress/WooCommerce estate. It brings course sales, protected video, tutor scheduling, payments and administration into one system.",
+    "tech": [
+      "TypeScript / NestJS",
+      "Next.js / React",
+      "Angular",
+      "PostgreSQL / Supabase",
+      "Stripe",
+      "Redis / BullMQ",
+      "OpenTofu",
+      "GitHub Actions"
+    ],
+    "year": "Jul 2026 — Current",
+    "category": "featured",
+    "details": {
+      "overview": "As founder, I own the architecture, delivery, security and release operations of a Polish education platform replacing a WordPress/WooCommerce estate. It brings course sales, protected video, tutor scheduling, payments and administration into one system.",
+      "sections": [
+        {
+          "heading": "Product & Engineering",
+          "bullets": [
+            {
+              "label": "Connected applications",
+              "text": "Built a Next.js store, Angular learning, tutoring and administration applications, and a NestJS API covering 30 domain modules."
+            },
+            {
+              "label": "Reliable commerce",
+              "text": "Implemented payment fulfilment through verified Stripe webhooks, with account credits, temporary seat holds, database locking and cancellation refunds."
+            },
+            {
+              "label": "Access to learning",
+              "text": "Gated signed video playback on course entitlements and integrated calendar synchronisation and reminders."
+            }
+          ]
+        },
+        {
+          "heading": "Security & Delivery",
+          "bullets": [
+            {
+              "label": "Consistent contracts",
+              "text": "Generated a typed SDK from OpenAPI and shared versioned API contracts across the frontend applications."
+            },
+            {
+              "label": "Controlled releases",
+              "text": "Built CI/CD with 36 Testcontainers integration specifications, image scanning, database migrations and post-deployment verification."
+            },
+            {
+              "label": "Infrastructure ownership",
+              "text": "Managed infrastructure with OpenTofu, remote state and short-lived GitHub cloud credentials; applied API access controls and PostgreSQL row-level security."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "slug": "free-running-app",
+    "title": "Free Running App",
+    "tagline": "A self-hosted Android running tracker that keeps location history under your control.",
+    "description": "I built a Flutter Android recorder and a small Node.js server for personal activity tracking. The phone stores raw GPS points locally and uploads them to a server you control, where distance, climb, pace and splits are calculated. Keeping the raw data allows activities to be recalculated as processing improves.",
+    "tech": [
+      "Flutter / Dart",
+      "Kotlin / Android",
+      "Node.js / TypeScript",
+      "SQLite",
+      "GitHub Actions"
+    ],
+    "year": "Aug 2026 — Sep 2026",
+    "category": "engineering",
+    "details": {
+      "overview": "I built a Flutter Android recorder and a small Node.js server for personal activity tracking. The phone stores raw GPS points locally and uploads them to a server you control, where distance, climb, pace and splits are calculated. Keeping the raw data allows activities to be recalculated as processing improves.",
+      "sections": [
+        {
+          "heading": "Recording & Data Integrity",
+          "bullets": [
+            {
+              "label": "Resilient recording",
+              "text": "Persisted GPS fixes in SQLite and retained session state so recording can resume after the app is killed."
+            },
+            {
+              "label": "Server-side processing",
+              "text": "Kept the recorder focused on raw positions and calculated activity summaries on the server, preserving the original data for later reprocessing."
+            },
+            {
+              "label": "Reliable uploads",
+              "text": "Made uploads idempotent using a phone-generated identifier, so retrying after a dropped connection does not create duplicate activities."
+            }
+          ]
+        },
+        {
+          "heading": "Verification & Privacy",
+          "bullets": [
+            {
+              "label": "Real-device validation",
+              "text": "Tested the recorder on a phone and investigated Android background behaviour through documented measurements."
+            },
+            {
+              "label": "Repeatable checks",
+              "text": "Automated formatting, type checks and tests for the app and server, including tests against real SQLite."
+            },
+            {
+              "label": "Personal deployment",
+              "text": "Designed the project for one person, one phone and a self-hosted server, keeping location history on hardware the user controls."
+            }
+          ]
+        }
+      ]
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/NaviteLogger/Free-Running-App"
+      }
+    ]
+  },
+  {
+    "slug": "secure-edge-proxy-platform",
+    "title": "Secure Edge Proxy Platform",
+    "tagline": "Repeatable, monitored infrastructure for securely exposing customer-facing services.",
+    "description": "I designed and delivered a university-associated infrastructure project combining Cloudflare, a hardened Nginx origin and redundant WireGuard paths. The work covers automated provisioning, traffic controls, service checks and documented recovery.",
+    "tech": [
+      "Nginx",
+      "Cloudflare",
+      "WireGuard",
+      "OpenTofu / Ansible",
+      "Linux / nftables",
+      "Zabbix / Grafana",
+      "GitHub Actions"
+    ],
+    "year": "Aug 2026 — Sep 2026",
+    "category": "engineering",
+    "details": {
+      "overview": "I designed and delivered a university-associated infrastructure project combining Cloudflare, a hardened Nginx origin and redundant WireGuard paths. The work covers automated provisioning, traffic controls, service checks and documented recovery.",
+      "sections": [
+        {
+          "heading": "Infrastructure & Reliability",
+          "bullets": [
+            {
+              "label": "Repeatable provisioning",
+              "text": "Automated DNS, Cloudflare policies, origin configuration and edge routing with OpenTofu and Ansible."
+            },
+            {
+              "label": "Secure traffic paths",
+              "text": "Applied origin authentication, strict TLS verification, network allowlists and redundant private tunnels."
+            },
+            {
+              "label": "Service continuity",
+              "text": "Designed traffic draining and rolling maintenance, with checks for HTTPS, WebSockets, rate limits, tunnel health and failure handling."
+            }
+          ]
+        },
+        {
+          "heading": "Operations & Handover",
+          "bullets": [
+            {
+              "label": "Actionable monitoring",
+              "text": "Added service-health dashboards, resource metrics and tunnel-age alerts using Zabbix and Grafana."
+            },
+            {
+              "label": "Controlled changes",
+              "text": "Introduced safeguards for destructive infrastructure plans, rollback procedures, secret scanning and approval-gated production changes."
+            },
+            {
+              "label": "Recovery documentation",
+              "text": "Audited recovery and operational procedures, prepared technical handover materials and tracked dependencies for controlled domain migration."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     slug: "infrastructure-automation-platform",
     title: "Infrastructure Automation Platform",
     tagline: "Production platform spanning secure builds, artifacts, AI analysis, and resilient delivery.",

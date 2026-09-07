@@ -49,7 +49,7 @@ function FeaturedGrid({ projects }: { projects: Project[] }) {
           key={project.slug}
           className="flex flex-col gap-6 bg-[color:var(--color-bg-elevated)] p-8 transition-colors"
         >
-          <div className="flex items-baseline justify-between gap-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
             <h3 className="font-sans text-xl font-medium leading-tight tracking-tight text-[color:var(--color-fg)]">
               {project.title}
             </h3>
