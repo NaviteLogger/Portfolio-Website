@@ -79,7 +79,7 @@ This site is configured for **static export** (`output: "export"` in [next.confi
    - **Framework preset:** Next.js (Static HTML Export)
    - **Build command:** `npm run build`
    - **Build output directory:** `out`
-   - **Node version:** 24 (set via env var `NODE_VERSION=24`, or rely on `.nvmrc`)
+   - **Node version:** 26 (set via env var `NODE_VERSION=26`, or rely on `.nvmrc`)
 4. Add `NEXT_PUBLIC_CLARITY_PROJECT_ID` under **Settings → Environment variables** to run Clarity on the deployed site.
 5. Save and deploy. Live at `<project>.pages.dev` in ~90s.
 
