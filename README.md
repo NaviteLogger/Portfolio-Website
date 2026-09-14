@@ -30,7 +30,7 @@ components/
   Footer.tsx
   Section.tsx      # shared section wrapper (eyebrow + title + content grid)
 lib/
-  analytics.ts     # Microsoft Clarity project id
+  analytics.ts     # reads NEXT_PUBLIC_CLARITY_PROJECT_ID
   content.ts       # all profile / project / experience / skills data
 content/projects/  # reserved for MDX project deep-dives if you add /projects/[slug] later
 public/
@@ -51,17 +51,25 @@ All copy lives in [lib/content.ts](lib/content.ts):
 
 Microsoft Clarity loads through the [@microsoft/clarity](https://www.npmjs.com/package/@microsoft/clarity) package.
 
-**The project id goes in [lib/analytics.ts](lib/analytics.ts), on the `projectId` line.** Take it from clarity.microsoft.com → your project → Settings → Overview, paste it between the quotes, commit, and Cloudflare rebuilds on push. The id is public: it ships in the tag URL on every page view.
+**`NEXT_PUBLIC_CLARITY_PROJECT_ID` controls it.** Take the id from clarity.microsoft.com → your project → Settings → Overview and set the variable in [.env.production](.env.production), which is committed:
 
-```ts
-const projectId = "abcd1234";
+```bash
+NEXT_PUBLIC_CLARITY_PROJECT_ID=abcd1234
 ```
 
-`NEXT_PUBLIC_CLARITY_PROJECT_ID` overrides that file when set, which is how you point a preview deployment at a different project. Copy `.env.example` to `.env.local` for local work.
+Commit that and Cloudflare rebuilds on push. The id is public, since it ships in the tag URL on every page view, which is why the file is in the repo while `.env` and `.env*.local` stay ignored.
 
-[components/ClarityAnalytics.tsx](components/ClarityAnalytics.tsx) calls `Clarity.init` after mount, which appends the `clarity.ms` tag to the document head. Leave both empty and the site ships with no tag and no request to Clarity.
+Next.js resolves the variable in this order, first hit wins:
 
-Either value is inlined at build time, so a change needs a rebuild.
+| source | use |
+| --- | --- |
+| `process.env` | a variable set in the Cloudflare Pages dashboard, overrides everything below |
+| `.env.local` | your machine, gitignored, copy it from `.env.example` |
+| `.env.production` | the repo default that ships to production |
+
+[components/ClarityAnalytics.tsx](components/ClarityAnalytics.tsx) calls `Clarity.init` after mount, which appends the `clarity.ms` tag to the document head. Leave the variable empty and the site ships with no tag and no request to Clarity.
+
+The value is inlined into the bundle at build time, so a change needs a rebuild.
 
 ## Visual system
 
@@ -89,7 +97,7 @@ This site is configured for **static export** (`output: "export"` in [next.confi
 
 Every push to `main` → production deploy. Every PR / branch → preview URL.
 
-No environment variables needed. The Clarity id lives in [lib/analytics.ts](lib/analytics.ts), described under [Analytics](#analytics).
+The one variable is `NEXT_PUBLIC_CLARITY_PROJECT_ID`, carried in [.env.production](.env.production) and described under [Analytics](#analytics).
 
 ## TODO before going live
 
