@@ -1,6 +1,6 @@
 # Portfolio — Marek Kacprzak
 
-Single-page personal site built with Next.js 15, TypeScript, Tailwind v4, and MDX (wired up but unused in v1).
+Single-page personal site built with Next.js 16, TypeScript, Tailwind v4, and MDX (wired up but unused in v1).
 
 ## Run
 
@@ -19,6 +19,7 @@ app/
   page.tsx          # single-page composition
   globals.css       # Tailwind v4 import + theme tokens
 components/
+  ClarityAnalytics.tsx  # Microsoft Clarity loader, mounted from the root layout
   Hero.tsx
   NavBar.tsx
   About.tsx
@@ -45,6 +46,18 @@ All copy lives in [lib/content.ts](lib/content.ts):
 - `experience` — role / org / period / summary
 - `skillGroups` — grouped skills shown two-up
 
+## Analytics
+
+Microsoft Clarity loads through the [@microsoft/clarity](https://www.npmjs.com/package/@microsoft/clarity) package. Copy `.env.example` to `.env.local` and set the project id from clarity.microsoft.com → your project → Settings → Overview:
+
+```bash
+NEXT_PUBLIC_CLARITY_PROJECT_ID=abcd1234
+```
+
+[components/ClarityAnalytics.tsx](components/ClarityAnalytics.tsx) calls `Clarity.init` after mount, which appends the `clarity.ms` tag to the document head. Leave the variable unset and the site ships with no tag and no request to Clarity.
+
+The id is inlined at build time, so a change needs a rebuild.
+
 ## Visual system
 
 Tailwind v4 with a tiny theme defined in [app/globals.css](app/globals.css):
@@ -66,12 +79,13 @@ This site is configured for **static export** (`output: "export"` in [next.confi
    - **Framework preset:** Next.js (Static HTML Export)
    - **Build command:** `npm run build`
    - **Build output directory:** `out`
-   - **Node version:** 20 (set via env var `NODE_VERSION=20`, or rely on `.nvmrc`)
-4. Save and deploy. Live at `<project>.pages.dev` in ~90s.
+   - **Node version:** 24 (set via env var `NODE_VERSION=24`, or rely on `.nvmrc`)
+4. Add `NEXT_PUBLIC_CLARITY_PROJECT_ID` under **Settings → Environment variables** to run Clarity on the deployed site.
+5. Save and deploy. Live at `<project>.pages.dev` in ~90s.
 
 Every push to `main` → production deploy. Every PR / branch → preview URL.
 
-No env vars required.
+The only environment variable is the optional Clarity project id described under [Analytics](#analytics).
 
 ## TODO before going live
 
