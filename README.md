@@ -30,6 +30,7 @@ components/
   Footer.tsx
   Section.tsx      # shared section wrapper (eyebrow + title + content grid)
 lib/
+  analytics.ts     # Microsoft Clarity project id
   content.ts       # all profile / project / experience / skills data
 content/projects/  # reserved for MDX project deep-dives if you add /projects/[slug] later
 public/
@@ -48,15 +49,19 @@ All copy lives in [lib/content.ts](lib/content.ts):
 
 ## Analytics
 
-Microsoft Clarity loads through the [@microsoft/clarity](https://www.npmjs.com/package/@microsoft/clarity) package. Copy `.env.example` to `.env.local` and set the project id from clarity.microsoft.com → your project → Settings → Overview:
+Microsoft Clarity loads through the [@microsoft/clarity](https://www.npmjs.com/package/@microsoft/clarity) package.
 
-```bash
-NEXT_PUBLIC_CLARITY_PROJECT_ID=abcd1234
+**The project id goes in [lib/analytics.ts](lib/analytics.ts), on the `projectId` line.** Take it from clarity.microsoft.com → your project → Settings → Overview, paste it between the quotes, commit, and Cloudflare rebuilds on push. The id is public: it ships in the tag URL on every page view.
+
+```ts
+const projectId = "abcd1234";
 ```
 
-[components/ClarityAnalytics.tsx](components/ClarityAnalytics.tsx) calls `Clarity.init` after mount, which appends the `clarity.ms` tag to the document head. Leave the variable unset and the site ships with no tag and no request to Clarity.
+`NEXT_PUBLIC_CLARITY_PROJECT_ID` overrides that file when set, which is how you point a preview deployment at a different project. Copy `.env.example` to `.env.local` for local work.
 
-The id is inlined at build time, so a change needs a rebuild.
+[components/ClarityAnalytics.tsx](components/ClarityAnalytics.tsx) calls `Clarity.init` after mount, which appends the `clarity.ms` tag to the document head. Leave both empty and the site ships with no tag and no request to Clarity.
+
+Either value is inlined at build time, so a change needs a rebuild.
 
 ## Visual system
 
@@ -80,12 +85,11 @@ This site is configured for **static export** (`output: "export"` in [next.confi
    - **Build command:** `npm run build`
    - **Build output directory:** `out`
    - **Node version:** 26 (set via env var `NODE_VERSION=26`, or rely on `.nvmrc`)
-4. Add `NEXT_PUBLIC_CLARITY_PROJECT_ID` under **Settings → Environment variables** to run Clarity on the deployed site.
-5. Save and deploy. Live at `<project>.pages.dev` in ~90s.
+4. Save and deploy. Live at `<project>.pages.dev` in ~90s.
 
 Every push to `main` → production deploy. Every PR / branch → preview URL.
 
-The only environment variable is the optional Clarity project id described under [Analytics](#analytics).
+No environment variables needed. The Clarity id lives in [lib/analytics.ts](lib/analytics.ts), described under [Analytics](#analytics).
 
 ## TODO before going live
 
